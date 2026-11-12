@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-lexio"
+version = "0.1.0"
+description = "LangChain tools for the Lexio Rent API (car rental software): fleet, availability and prices, rentals, customers and quotes."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Lexio Rent", email = "contact@lexio.rent" }]
+keywords = ["langchain", "langchain-tools", "agents", "lexio", "lexio-rent", "car-rental", "fleet-management"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["langchain-core>=0.3,<2", "lexio-rent>=0.1.1", "pydantic>=2"]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pytest-asyncio", "langchain-tests>=0.3"]
+
+[project.urls]
+Homepage = "https://lexio.rent/logiciel-location-voiture"
+Documentation = "https://github.com/lexio-rent-git/langchain-lexio#readme"
+"API reference" = "https://docs.lexio.rent"
+Source = "https://github.com/lexio-rent-git/langchain-lexio"
+Issues = "https://github.com/lexio-rent-git/langchain-lexio/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_lexio"]
+
+[tool.hatch.build.targets.sdist]
+include = ["langchain_lexio", "tests", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
